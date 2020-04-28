@@ -9,7 +9,16 @@ import {User} from '../../model/model';
   styleUrls: ['./registry.component.css']
 })
 export class RegistryComponent implements OnInit {
-  roleList = ['Admministrator', 'User'];
+  roleList = [
+    {
+      value: 'user',
+      description: 'Użytkownik'
+    },
+    {
+      value: 'admin',
+      description: 'Administrator'
+    }
+  ];
   registryForm: FormGroup;
   constructor(private adminService: AdminService) { }
 
@@ -28,7 +37,15 @@ export class RegistryComponent implements OnInit {
   }
 
   registry() {
-    const user: User = this.registryForm.value;
+    // const user: User = this.registryForm.value;
+    const user: User = {role: []} as User;
+    user.email = this.registryForm.value.email;
+    user.name = this.registryForm.value.name;
+    user.password = this.registryForm.value.password;
+    user.username = this.registryForm.value.username;
+    // @ts-ignore
+    user.role.push(this.registryForm.value.role);
+    console.log(user);
     this.adminService.registry(user).subscribe( x => {
       console.log(x);
     });

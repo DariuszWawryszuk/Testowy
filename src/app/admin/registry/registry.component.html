@@ -2,20 +2,28 @@
 <div class="registry">
   <form [formGroup]="registryForm" class="registry-container" (ngSubmit)="registry()">
     <div>
-      <i class="far fa-user registry_icons"></i><input   class="registry_input" placeholder="Email" formControlName="email">
+      <i class="far fa-envelope-open registry_icons"></i>
+      <input class="registry_input" placeholder="Email" formControlName="email">
     </div>
     <div>
-      <i class="fas fa-unlock-alt registry_icons"></i><input class="registry_input" placeholder="Name" formControlName="name">
-    </div>
-    <div>
-      <i class="fas fa-unlock-alt registry_icons"></i><input class="registry_input" placeholder="Password" formControlName="password">
+      <i class="far fa-user registry_icons"></i>
+      <input class="registry_input" placeholder="Imię Nazwisko" formControlName="name">
     </div>
     <div>
       <i class="fas fa-unlock-alt registry_icons"></i>
-      <input class="registry_input" placeholder="Role" formControlName="role">
+      <input class="registry_input" placeholder="Hasło" formControlName="password">
     </div>
     <div>
-      <i class="fas fa-unlock-alt registry_icons"></i><input class="registry_input" placeholder="UserName" formControlName="username">
+      <i class="fas fa-user-tag registry_icons"></i>
+      <select class="registry_input" formControlName="role">
+        <option selected>---</option>
+        <option *ngFor="let role of roleList" value=role.value>{{role.description}}</option>
+      </select>
+<!--      <input class="registry_input" placeholder="Rola" formControlName="role">-->
+    </div>
+    <div>
+      <i class="far fa-user registry_icons"></i>
+      <input class="registry_input" placeholder="Nazwa użytkownika" formControlName="username">
     </div>
 
 
