@@ -1,0 +1,26 @@
+
+<div class="registry">
+  <form [formGroup]="registryForm" class="registry-container" (ngSubmit)="registry()">
+    <div>
+      <i class="far fa-user registry_icons"></i><input   class="registry_input" placeholder="Email" formControlName="email">
+    </div>
+    <div>
+      <i class="fas fa-unlock-alt registry_icons"></i><input class="registry_input" placeholder="Name" formControlName="name">
+    </div>
+    <div>
+      <i class="fas fa-unlock-alt registry_icons"></i><input class="registry_input" placeholder="Password" formControlName="password">
+    </div>
+    <div>
+      <i class="fas fa-unlock-alt registry_icons"></i>
+      <input class="registry_input" placeholder="Role" formControlName="role">
+    </div>
+    <div>
+      <i class="fas fa-unlock-alt registry_icons"></i><input class="registry_input" placeholder="UserName" formControlName="username">
+    </div>
+
+
+    <input class="btnRegistry" type="submit" value="Registry">
+
+  </form>
+</div>
+

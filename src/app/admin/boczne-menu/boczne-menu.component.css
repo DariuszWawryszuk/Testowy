@@ -1,0 +1,59 @@
+.example-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.sidenav {
+  padding-top: 20px;
+  background-color: WhiteSmoke;
+}
+
+.example-tree-invisible {
+  display: none;
+}
+
+.example-tree ul,
+.example-tree li {
+  margin-top: 0;
+  margin-bottom: 0;
+  list-style-type: none;
+  width: 200px;
+}
+
+.button_sidenav {
+  font-size: 16px;
+  width: 80%;
+  text-align: left;
+  background-color: WhiteSmoke;
+}
+
+.button_menu {
+  background-color: WhiteSmoke;
+  margin-left: 10px;
+  width: 120px;
+  box-shadow: 0px 4px 2px 0 rgba(0, 0, 0, 0.41);
+}
+.titleLinkHelp {
+  font-size: 16px;
+  position: relative;
+  color: black;
+}
+
+.titleLinkHelp:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  transition: transform .5s ease-in-out;
+  background-color: DimGray;
+  transform-origin: left ;
+  transform: scaleX(0);
+}
+
+.mat-tree-node:hover .titleLinkHelp:before {
+  transform: scaleX(1);
+}
