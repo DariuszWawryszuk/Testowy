@@ -40,7 +40,7 @@ export class AuthService {
       tap(async (res: JwtResponse) => {
 
         if (res) {
-          localStorage.setItem('AUTH_SERVER_SIGNIN', res.access_token);
+          localStorage.setItem('ACCESS_TOKEN', res.access_token);
         }
       })
     );

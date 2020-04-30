@@ -20,6 +20,8 @@ export class RegistryComponent implements OnInit {
     }
   ];
   registryForm: FormGroup;
+  registryOK = false;
+  registryError = false;
   constructor(private adminService: AdminService) { }
 
   ngOnInit() {
@@ -28,15 +30,17 @@ export class RegistryComponent implements OnInit {
 
   private createForm() {
     this.registryForm = new FormGroup({
-      email: new FormControl ('', Validators.required),
+      email: new FormControl ('', [Validators.required, Validators.email]),
       name: new FormControl ('', Validators.required),
-      password: new FormControl ('', Validators.required),
+      password: new FormControl ('', Validators.compose([Validators.required, Validators.minLength(6)])),
       role: new FormControl ('', Validators.required),
       username: new FormControl ('', Validators.required)
     });
   }
 
   registry() {
+    this.registryOK = false;
+    this.registryError = false;
     // const user: User = this.registryForm.value;
     const user: User = {role: []} as User;
     user.email = this.registryForm.value.email;
@@ -48,6 +52,10 @@ export class RegistryComponent implements OnInit {
     console.log(user);
     this.adminService.registry(user).subscribe( x => {
       console.log(x);
+      this.registryOK = true;
+    }, error => {
+      console.log(error.error);
+      this.registryError = true;
     });
   }
 }

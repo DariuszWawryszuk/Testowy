@@ -18,7 +18,7 @@
   width: 220px;
   height: 35px;
   padding-left: 5px;
-  margin-bottom: 10px;
+  margin-top: 10px;
   border-radius: 5px;
   border-width: 0;
   box-shadow: 0px 4px 2px 0 rgba(0, 0, 0, 0.41);
@@ -41,5 +41,26 @@
 .registry_icons {
   font-size: 28px;
   color: DimGray;
-  margin-right: 8px;
+  margin-right: 12px;
+}
+
+.alert_text {
+  color: Chocolate;
+  font-size: 14px;
+  margin-top: 2px;
+}
+
+.in-valid {
+  border-color: red;
+  border-width: 1px;
+}
+
+.registryOK {
+  background-color: YellowGreen;
+  width: 400px;
+  height: 40px;
+  text-align: center;
+  border-radius: 5px;
+  margin: 0 auto;
+  line-height: 40px;
 }
