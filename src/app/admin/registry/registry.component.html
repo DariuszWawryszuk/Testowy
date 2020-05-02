@@ -2,7 +2,19 @@
 <div class="registry">
   <form [formGroup]="registryForm" class="registry-container" (ngSubmit)="registry()">
     <div class="registryOK" *ngIf="registryOK">Użytkownik zarejstrowany</div>
-    <div class="registryError" *ngIf="registryError">Błąd!!!</div>
+    <div class="registryError" *ngIf="registryError">{{errorDescription}}</div>
+    <div>
+      <i class="far fa-user registry_icons"></i>
+      <input class="registry_input" placeholder="Nazwa użytkownika" formControlName="username">
+      <div class="alert_text" *ngIf="!registryForm.controls['username'].valid && registryForm.controls['username'].touched">
+        Pole musi być uzupełnopne </div>
+    </div>
+    <div>
+      <i class="fas fa-unlock-alt registry_icons"></i>
+      <input class="registry_input" placeholder="Hasło" formControlName="password">
+      <div class="alert_text" *ngIf="!registryForm.controls['password'].valid && registryForm.controls['password'].touched">
+        Pole musi być uzupełnopne. Hasło musi zawierać minimum 6 znaków</div>
+    </div>
     <div class="registry_item">
       <i class="far fa-envelope-open registry_icons"></i>
       <input  placeholder="Email" formControlName="email"
@@ -17,31 +29,20 @@
       <div class="alert_text" *ngIf="!registryForm.controls['name'].valid && registryForm.controls['name'].touched">
         Pole musi być uzupełnopne </div>
     </div>
-    <div>
-      <i class="fas fa-unlock-alt registry_icons"></i>
-      <input class="registry_input" placeholder="Hasło" formControlName="password">
-      <div class="alert_text" *ngIf="!registryForm.controls['password'].valid && registryForm.controls['password'].touched">
-        Pole musi być uzupełnopne. Hasło musi zawierać minimum 6 znaków</div>
-    </div>
+
     <div>
       <i class="fas fa-user-tag registry_icons"></i>
       <select class="registry_input" formControlName="role">
-        <option selected>---</option>
-        <option *ngFor="let role of roleList" [value]="role.value">{{role.description}}</option>
+        <option class="registry_input_option" *ngFor="let role of roleList" [value]="role.value">{{role.description}}</option>
       </select>
       <div class="alert_text" *ngIf="!registryForm.controls['role'].valid && registryForm.controls['role'].touched">
         Pole musi być uzupełnopne </div>
     </div>
-    <div>
-      <i class="far fa-user registry_icons"></i>
-      <input class="registry_input" placeholder="Nazwa użytkownika" formControlName="username">
-      <div class="alert_text" *ngIf="!registryForm.controls['username'].valid && registryForm.controls['username'].touched">
-        Pole musi być uzupełnopne </div>
-    </div>
-
 
     <button class="btnRegistry" type="submit" value="Registry" [disabled]="registryForm.invalid">Rejestracja</button>
 
   </form>
+
+
 </div>
 

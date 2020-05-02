@@ -22,6 +22,7 @@ export class RegistryComponent implements OnInit {
   registryForm: FormGroup;
   registryOK = false;
   registryError = false;
+  errorDescription: string;
   constructor(private adminService: AdminService) { }
 
   ngOnInit() {
@@ -56,6 +57,11 @@ export class RegistryComponent implements OnInit {
     }, error => {
       console.log(error.error);
       this.registryError = true;
+      if (error.error.message === 'Fail -> Username is already taken!') {
+        this.errorDescription = 'Nazwa Użytkowniak jest już zajęta';
+      } else {
+        this.errorDescription = 'E-mail jest już zajęty';
+      }
     });
   }
 }

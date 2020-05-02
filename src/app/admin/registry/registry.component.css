@@ -24,6 +24,16 @@
   box-shadow: 0px 4px 2px 0 rgba(0, 0, 0, 0.41);
 }
 
+.registry_input_option {
+  color: red;
+  width: 220px;
+  height: 35px;
+  padding-left: 5px;
+  margin-top: 10px;
+  border-radius: 5px;
+  border-width: 0;
+  box-shadow: 0px 4px 2px 0 rgba(0, 0, 0, 0.41);
+}
 
 .btnRegistry {
   width: 260px;
@@ -57,6 +67,16 @@
 
 .registryOK {
   background-color: YellowGreen;
+  width: 400px;
+  height: 40px;
+  text-align: center;
+  border-radius: 5px;
+  margin: 0 auto;
+  line-height: 40px;
+}
+
+.registryError {
+  background-color: FireBrick;
   width: 400px;
   height: 40px;
   text-align: center;
