@@ -14,6 +14,8 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   isSubmitted = false;
+  loginError = false;
+  errorDescription;
 
   constructor( private router: Router, private authService: AuthService) {
   }
@@ -43,6 +45,14 @@ export class LoginComponent implements OnInit {
         this.router.navigateByUrl('user');
       }
 
+    }, error => {
+      console.log(error.error);
+      this.loginError = true;
+      if (error.error.message === 'Error -> Unauthorized') {
+        this.errorDescription = 'Nazwa użytkownika lub hasło jest niepoprawne';
+      } else {
+        this.errorDescription = 'Wystąpił błąd!!!';
+      }
     });
   }
 
